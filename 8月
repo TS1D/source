@@ -1,0 +1,30 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Fanny{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random rand = new Random();
+        
+        int secretNumber = rand.nextInt(1000) + 1;
+        int guess = -1;
+        
+
+        while (guess != secretNumber) {
+            System.out.print("1から1000までの数字を入力してください");
+            guess = scanner.nextInt();
+            if(guess == 0){
+              System.out.println("1から1000までの数字でお願いします");
+              break;
+            }
+               
+            if (guess == secretNumber) {
+                System.out.println("正解です！おめでとうございます。");
+            } else {
+                System.out.println("残念ですが、正解ではありません。もう一度お試しください。");
+            }
+        }
+        
+        scanner.close();
+    }
+}
