@@ -1,0 +1,53 @@
+public class Main {
+  public static void main(String[] args) {
+    Hero h1 = new Hero();
+    h1.name = "minato";
+    h1.hp = 100;
+    Hero h2 = new Hero();
+    h2.name = "itachi";
+    h2.hp = 100;
+    Hero.money = 100;
+
+    System.out.println(h1.hp);
+    System.out.println(Hero.money);
+    System.out.println(Hero.money);
+    h1.money = 300;
+    System.out.println(h2.money);
+
+    if(h1.equals(h2) == true) {
+      System.out.println("同じ内容です");
+    }else {
+      System.out.println("違う内容です。");
+    }
+  }
+}
+
+public class Hero {
+  String name;
+  int hp;
+  static int money;
+  public String toString() {
+    return "名前:" + this.name + "/HP:" + this.hp;
+  }
+  public boolean equals(Object o){
+    if(this == o) { return true; }
+      if(o instanceof Hero) {Hero h = (Hero)o; if(this.name.equals(h.name)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  public static void setRandomMoney() {
+    Hero.money = (int)(Math.random() * 1000);
+  }
+}
+
+//2
+public class Main {
+  public static void main(String[] args) {
+    Hero.setRandomMoney();
+    System.out.println(Hero.money);
+    Hero h1 = new Hero();
+    System.out.println(h1.money);
+  }
+}
