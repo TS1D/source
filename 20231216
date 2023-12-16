@@ -1,0 +1,44 @@
+public class Main{
+  public static void main(String[] args){
+    String s1 = "スッキリJava";
+    String s2 = "Java";
+    String s3 = "java";
+    String str = " Java Programing ";
+    String str2 = "abc123abc123";
+    //文字列を置換する
+    String str3 = str2.replace("abc", "0");
+    //文字列を正規表現で置換する
+    String str4 = str2.replaceAll("[a-z]+", "0");
+    //最初のひとつだけ置換する
+    String str5 = str2.replaceFirst("[a-z]+", "0");
+    if(s2.equals(s3)) {
+      System.out.println("s2とs3は等しい");
+    }
+    if(s2.equalsIgnoreCase(s3)) {
+      System.out.println("s2とs3はケースを区別しなければ等しい");
+    }
+    System.out.println("s1の長さは" + s1.length() + "です");
+
+    if(s1.isEmpty()) {
+      System.out.println("s1は空文字です");
+    }
+    if(s1.contains("Java")) {
+      System.out.println("Javaを含んでいます。");
+    }
+    if(s1.startsWith("s")) {
+      System.out.println("sで始まります。");
+    }
+    if(s1.endsWith("s")) {
+      System.out.println("sで終わります。");
+    }
+    System.out.println("文字列s1で最初にJavaが登場する位置は" + s1.indexOf("Java"));
+    System.out.println("文字列s1で最後にJavaが登場する位置は" + s1.lastIndexOf("Java"));
+    System.out.println("文字列s1の4文字目以降は" + str.substring(3));
+    System.out.println("文字列s1の4〜8文字目以降は" + str.substring(3,8));
+    System.out.println("大文字を小文字に、小文字を大文字にしました。" + str.toLowerCase() + ":" + str.toUpperCase());
+    System.out.println(str.trim());
+    System.out.println(str3);
+    System.out.println(str4);
+    System.out.println(str5);
+  }
+}
