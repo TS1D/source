@@ -1,0 +1,15 @@
+import java.util.*;
+
+public class K{
+    public static void main(String[] args){
+        Map<String, Integer>prefs = new HashMap<String, Integer>();
+        prefs.put("Kyoto", 255);
+        prefs.put("Tokyo", 1261);
+        prefs.put("Kumamoto", 182);
+
+        for(String key : prefs.keySet()){
+            int value = prefs.get(key);
+            System.out.println(key + "の人口は、" + value);
+        }
+    }
+}
