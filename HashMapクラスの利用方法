@@ -1,0 +1,16 @@
+import java.util.*;
+
+public class K{
+    public static void main(String[] args){
+        Map<String, Integer> prefa = new HashMap<String, Integer>();
+        prefa.put("京都府", 255);
+        prefa.put("東京都", 1261);
+        prefa.put("熊本県", 181);
+        int tokyo = prefa.get("東京都");
+        System.out.println("東京都の人口は、" + tokyo);
+        prefa.remove("京都府");
+        prefa.put("熊本県", 182);
+        int kumamoto = prefa.get("熊本県");
+        System.out.println("熊本県の人口は、" + kumamoto);
+    }
+}
