@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main{
+    public static final int BIG_NUM = 2000000000;
+	public static final long HUGE_NUM = 2000000000;
+	
+	@SuppressWarnings("resource")
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        final int numHouse = 4;
+        final int numFloor = 3;
+        final int numRoom = 10;
+        
+        int table[][][] = new int[numHouse+1][numFloor+1][numRoom+1];
+        
+        for(int i = 1; i <= numHouse; i++){
+            for(int k = 1; k <= numFloor; k++){
+                for(int p = 1; p <= numRoom; p++){
+                    table[i][k][p] = 0;
+                }
+            }
+        }
+        
+        int n = sc.nextInt();
+        for(int i = 0; i < n; i++){
+            int b = sc.nextInt();
+            int f = sc.nextInt();  
+            int r = sc.nextInt();
+            int v = sc.nextInt();
+            
+            table[b][f][r] += v;
+        }
+        for(int i = 1; i <= numHouse; i++){
+            for(int k = 1; k <= numFloor; k++){
+                for(int p = 1; p <= numRoom; p++){
+                    System.out.printf(" %d", table[i][k][p]);
+                }
+                System.out.println();
+            }
+            if(i < numHouse) {
+                System.out.println("####################");
+            }
+        }
+        
+    }
+}
