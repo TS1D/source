@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main{
+	public static void main(String[]args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		String[] a = new String[n + 1];
+		String[] b = new String[n + 1];
+		int v = 0;
+		for(int i = 1; i < n + 1; i++) {
+			a[i] = sc.next();
+			b[i] = sc.next();
+			if(a[i].equals("n") || b[i].equals("n")) {
+				v += 1;
+			}
+		}
+		System.out.println(v);
+		for(int i = 1; i < n + 1; i++) {
+			if(a[i].equals("n") || b[i].equals("n")) {
+				System.out.println(i);
+			}
+		}
+		
+	}
+}
