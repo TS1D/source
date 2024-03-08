@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Main{
+	public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        String s = sc.nextLine();
+        String leet = convertToLeet(s);
+        System.out.println(leet);
+
+        sc.close();
+    }
+	
+	public static String convertToLeet(String s) {
+		StringBuilder leetString = new StringBuilder();
+	
+		for(int i = 0; i < s.length(); i++) {
+			char ch = s.charAt(i);
+			switch(ch){
+				case'A':
+					leetString.append('4');
+					break;
+				case'E':
+					leetString.append('3');
+					break;
+				case'G':
+					leetString.append('6');
+					break;
+				case'I':
+					leetString.append('1');
+					break;
+				case'O':
+					leetString.append('0');
+					break;
+				case'S':
+					leetString.append('5');
+					break;
+				case'Z':
+					leetString.append('2');
+					break;
+				default:
+					leetString.append(ch);
+			}
+		}
+		return leetString.toString();
+	}
+}
