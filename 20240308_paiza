@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        
+        String filename = sc.nextLine();
+        String replacedFilename = replaceHyphens(filename);
+        System.out.println(replacedFilename);
+    }
+    public static String replaceHyphens(String filename){
+        char[] filenameChars = filename.toCharArray();
+        
+        for(int i = 0; i < filenameChars.length - 1; i++){
+            if(filenameChars[i] == '-' && filenameChars[i+1] == '-'){
+                filenameChars[i] = '\0';
+            }
+        }
+         return new String(filenameChars).replace("\0", "");
+    }
+}
