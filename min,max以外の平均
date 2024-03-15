@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] a = new int[n];
+        int v = 0;
+        
+        for(int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+            v += a[i];
+        }
+        int max = Integer.MIN_VALUE;      
+        int min = Integer.MAX_VALUE;
+        for (int num : a) {
+            max = Math.max(max, num);
+            min = Math.min(min, num);
+        }
+        double sum = v - (min + max);
+        double avg = (double)sum / (a.length - 2);
+        
+        System.out.print((Math.floor(avg * 10)) / 10);
+        
+    }
+}
