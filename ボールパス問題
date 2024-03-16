@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main{
+	public static void main(String[] args) {		
+		Scanner sc = new Scanner(System.in);
+		
+		int n = sc.nextInt();
+		sc.nextLine();
+		int[] s = new int[n];
+		for(int i = 0; i < n; i++) {			
+			s[i] = sc.nextInt();
+		}
+		sc.nextLine();		
+		int m = sc.nextInt();
+	
+		for(int j = 0; j < m; j++) {
+			int a = sc.nextInt();
+			int b = sc.nextInt();
+			int x = sc.nextInt();
+			// パス元の人がパスするボールの数を計算
+      //Math.min(a, b) は、a と b の中で小さい方を返すメソッド
+      //この行では、パス元の人が持っているボールの数とパスで宣言されたボールの数の中で小さい方を選択し、その値を passAmount に代入する
+      int passAmount = Math.min(s[a - 1], x);
+      
+      s[a - 1] -= passAmount; // パス元のボール数を更新
+      s[b - 1] += passAmount; // パス先のボール数を更新
+		}		
+		for (int i = 0; i < n; i++) {
+            System.out.println(s[i]);
+        }
+	}
+}
