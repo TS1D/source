@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // 花の数を取得
+        int N = sc.nextInt();
+        sc.nextLine(); // 改行を読み飛ばす
+        
+        // 1つ目のリースの状態を取得
+        String S1 = sc.nextLine();
+        
+        // 2つ目のリースの状態を取得
+        String S2 = sc.nextLine();
+        
+        // 1つ目のリースの状態を2倍にする
+        String doubledS1 = S1 + S1;
+        
+        // 2つ目のリースの状態が1つ目のリースの状態を含むかどうかを判定
+        if (doubledS1.contains(S2)) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
