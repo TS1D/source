@@ -2,10 +2,10 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         // 必要な製品の数を取得
-        int N = scanner.nextInt();
+        int N = sc.nextInt();
 
         // 製品の一覧を格納するSetを作成
         Set<Integer> products = new HashSet<>();
