@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String num = sc.nextLine();
+        //ハイフンのを取り除く
+        String cleanNum = num.replace("-","");
+        int ans = 0;
+        //一文字ずつ配列に格納
+        char[] numArray = cleanNum.toCharArray();
+        for(char c : numArray){
+            // Character.getNumricValueメソッドは指定された文字cの数値としての値を返すメソッド。
+            // ハイフンを取り除いた文字列の各文字について、getNumericValue()メソッドを使ってその数値を取得しています。
+            // そして、各数字に対応する値を加算しています。
+            int digit = Character.getNumericValue(c);
+            switch(digit){
+                case 0:
+                    ans+=12;
+                    break;
+                case 1:
+                    ans+=3;
+                    break;
+                case 2:
+                    ans+=4;
+                    break;
+                case 3:
+                    ans+=5;
+                    break;
+                case 4:
+                    ans+=6;
+                    break;
+                case 5:
+                    ans+=7;
+                    break;
+                case 6:
+                    ans+=8;
+                    break;
+                case 7:
+                    ans+=9;
+                    break;
+                case 8:
+                    ans+=10;
+                    break;
+                case 9:
+                    ans+=11;
+                    break;
+            }
+        }
+        System.out.println(ans*2);
+    }
+}
+
+
