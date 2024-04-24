@@ -4,10 +4,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        // 花の数を取得
-        int N = sc.nextInt();
-        sc.nextLine(); // 改行を読み飛ばす
-        
         // 1つ目のリースの状態を取得
         String S1 = sc.nextLine();
         
