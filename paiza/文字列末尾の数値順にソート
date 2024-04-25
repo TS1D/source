@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        String[] strings = new String[num];
+        for(int i = 0; i < num; i++){
+            strings[i] = sc.next();
+        }
+        //文字列ごとに末尾の数値を取得し、数値と文字列を組み合わせたオブジェクトを格納するリストを作成
+        List<NumberedString> numberedStrings = new ArrayList<>();
+        for (String str : strings) {
+            int number = extractNumber(str);
+            numberedStrings.add(new NumberedString(str, number));
+        }
+
+        //末尾の数値でソートします
+        Collections.sort(numberedStrings);
+        //結果を出力
+        for(NumberedString ns : numberedStrings){
+            System.out.println(ns.string);
+        }
+        sc.close();
+    }
+
+    //文字列から末尾の数値を抽出するメソッド
+    private static int extractNumber(String str){
+        Pattern pattern = Pattern.compile("\\d+$");
+        Matcher matcher = pattern.matcher(str);
+        if(matcher.find()){
+            return Integer.parseInt(matcher.group());
+        }
+        return 0;//数値が見つからない場合は0を返す
+    }
+    //文字列と数値を組み合わせたクラス
+    static class NumberedString implements Comparable<NumberedString>{
+        String string;
+        int number;
+        public NumberedString(String string, int number){
+            this.string = string;
+            this.number = number;
+        }
+        @Override
+        public int compareTo(NumberedString other){
+            return Integer.compare(this.number, other.number);
+        }
+    }
+}
