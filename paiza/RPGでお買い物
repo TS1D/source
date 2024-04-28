@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        //道具の個数を表すN
+        int N = sc.nextInt();
+        //各道具の単価
+        int[] a = new int[N];
+        for(int i = 0; i < N; i++){
+            a[i] = sc.nextInt();
+        }
+        int T = sc.nextInt();//最初の所持金
+        int Q = sc.nextInt();//注文回数
+        //購入したい道具番号とその個数
+        
+        
+        int sumPrice = 0;
+        for(int i = 0; i < Q; i++){
+            int x = sc.nextInt();
+            int k = sc.nextInt();
+            if(x>=1 && x<=N && k>=1 && k<=99){
+                sumPrice = a[x-1]*k;
+                if(T>=sumPrice){
+                    T-=sumPrice;
+                }else{
+                    continue;
+                }
+            }
+        }
+        
+        System.out.println(T);
+        sc.close();
+    }
+}
