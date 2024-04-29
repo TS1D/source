@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // 入力の読み込み
+        int N = sc.nextInt(); // 予約された座席の数
+        int H = sc.nextInt(); // 映画館の座席の縦の数
+        int W = sc.nextInt(); // 映画館の座席の横の数
+        int P = sc.nextInt(); // 最も見やすい席の p 座標
+        int Q = sc.nextInt(); // 最も見やすい席の q 座標
+        
+        // 予約された座席の座標をセットに格納
+        Set<String> reservedSeats = new HashSet<>();
+        for (int i = 0; i < N; i++) {
+            int p = sc.nextInt();
+            int q = sc.nextInt();
+            reservedSeats.add(p + " " + q);
+        }
+        
+        // まだ予約されていない最も映画を見やすい席を探す
+        List<String> optimalSeats = new ArrayList<>();
+        int minManhattanDistance = Integer.MAX_VALUE;
+        for (int i = 0; i < H; i++) {
+            for (int j = 0; j < W; j++) {
+                String seat = i + " " + j;
+                if (!reservedSeats.contains(seat)) {
+                    int manhattanDistance = Math.abs(i - P) + Math.abs(j - Q);
+                    if (manhattanDistance < minManhattanDistance) {
+                        minManhattanDistance = manhattanDistance;
+                        optimalSeats.clear();
+                        optimalSeats.add(seat);
+                    } else if (manhattanDistance == minManhattanDistance) {
+                        optimalSeats.add(seat);
+                    }
+                }
+            }
+        }
+        
+        // 結果を出力
+        for (String seat : optimalSeats) {
+            System.out.println(seat);
+        }
+    }
+}
