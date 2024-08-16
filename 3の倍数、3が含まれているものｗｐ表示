@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		ArrayList<Integer> numbers = new ArrayList<>();
+		int N = sc.nextInt();
+		for (int i = 1; i <= N; i++) {
+			if (i % 3 == 0) {
+				numbers.add(i);
+
+			} else if (i % 10 == 3) {
+				numbers.add(i);
+			} else if (containsThree(i)) {
+				numbers.add(i);
+			}
+		}
+		StringBuilder sb = new StringBuilder();
+		for (int num : numbers) {
+			sb.append(" ").append(num);
+		}
+		String result = sb.toString();
+		System.out.println(result);
+	}
+
+	public static boolean containsThree(int i) {
+		String numStr = String.valueOf(i);
+		for (char c : numStr.toCharArray()) {
+			if (c == '3') {
+				return true;
+			}
+		}
+		return false;
+	}
+}
